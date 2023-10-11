@@ -1,3 +1,4 @@
 print('Hello git!')
 print('Hello jeju!')
-print('Hello JHU')
+print('Hello CHU')
+
