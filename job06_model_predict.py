@@ -9,6 +9,7 @@ from tensorflow.keras.utils import to_categorical
 import pickle
 from tensorflow.keras.models import load_model
 
+
 df=pd.read_csv('./crawling_data/naver_headline_news_20231012.csv')
 print(df.head())
 df.info()

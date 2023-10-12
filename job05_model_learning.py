@@ -8,6 +8,7 @@ X_train, X_test, Y_train, Y_test = np.load(
 print(X_train.shape, Y_train.shape)
 print(X_test.shape, Y_test.shape)
 
+
 model = Sequential()
 model.add(Embedding(12435, 300, input_length=21)) #12435를 300으로 차원 축소  차원이 커지면 데이터도 커져야 함. 하지만 데이터를 늘릴 수 없으니까 차원을 줄이는 것
 model.add(Conv1D(32, kernel_size=5, padding='same', activation='relu'))
