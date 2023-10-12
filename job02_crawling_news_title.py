@@ -9,6 +9,7 @@ import time
 import datetime
 
 
+
 options = ChromeOptions()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
@@ -45,15 +46,16 @@ for l in range(5,6):
         if k % 10 == 0: #10페이지마다 한번씩 저장
             df_section_title = pd.DataFrame(titles, columns=['titles'])
             df_section_title['category'] = category[l]
-            df_titles = pd.concat([df_titles, df_section_title], ignore_index=True)
-            df_titles.to_csv('./crawling_data/crawling_data_{}_{}.csv'.format(l, k), index=False) #l (정치)섹션 k 몇페이지
+            df_section_title.to_csv('./crawling_data/crawling_data_{}_{}.csv'.format(l, k), index=False) #l (정치)섹션 k 몇페이지
             titles = []
 
     df_section_title = pd.DataFrame(titles, columns=['titles'])
     df_section_title['category'] = category[l]
-    df_titles = pd.concat([df_titles, df_section_title], ignore_index=True)
-    df_titles.to_csv('./crawling_data/crawling_data_IT.csv',index=False)
+    # df_titles = pd.concat([df_titles, df_section_title], ignore_index=True)
+    df_section_title.to_csv('./crawling_data/crawling_data_IT.csv',index=False)
 
-print(df_titles.head())
-df_titles.info()
-print(df_titles['category'].value_counts())
+driver.close()
+
+# print(df_titles.head())
+# df_titles.info()
+# print(df_titles['category'].value_counts())
